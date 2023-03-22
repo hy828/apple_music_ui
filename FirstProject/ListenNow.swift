@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ListenNow: View {
+    
+    @State private var showingAccount = false
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -25,6 +28,16 @@ struct ListenNow: View {
                 RecentlyPlayed
             }
             .navigationTitle("Listen Now")
+            .toolbar {
+                Button {
+                    showingAccount.toggle()
+                } label: {
+                    Label("Account", systemImage: "person.crop.circle")
+                }
+            }
+            .sheet(isPresented: $showingAccount) {
+                Account()
+            }
         }
     }
     

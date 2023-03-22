@@ -16,6 +16,8 @@
 		8BDC787129CB096F00752CE0 /* Browse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC787029CB096F00752CE0 /* Browse.swift */; };
 		8BDC787329CB09CA00752CE0 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC787229CB09CA00752CE0 /* Radio.swift */; };
 		8BDC787529CB09D900752CE0 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC787429CB09D900752CE0 /* Search.swift */; };
+		8BDC787929CB121100752CE0 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC787829CB121100752CE0 /* Notifications.swift */; };
+		8BDC787D29CB15CA00752CE0 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC787C29CB15CA00752CE0 /* Account.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,9 @@
 		8BDC787029CB096F00752CE0 /* Browse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Browse.swift; sourceTree = "<group>"; };
 		8BDC787229CB09CA00752CE0 /* Radio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
 		8BDC787429CB09D900752CE0 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		8BDC787829CB121100752CE0 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		8BDC787A29CB15A300752CE0 /* FirstProject */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FirstProject; sourceTree = "<group>"; };
+		8BDC787C29CB15CA00752CE0 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				8B11BA2729BA21BF0095EBFE /* FirstProject */,
+				8BDC787A29CB15A300752CE0 /* FirstProject */,
 				8B11BA2629BA21BF0095EBFE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +73,8 @@
 				8BDC787229CB09CA00752CE0 /* Radio.swift */,
 				8BDC787029CB096F00752CE0 /* Browse.swift */,
 				8BDC786E29CB087F00752CE0 /* ListenNow.swift */,
+				8BDC787C29CB15CA00752CE0 /* Account.swift */,
+				8BDC787829CB121100752CE0 /* Notifications.swift */,
 				8BDC786C29CB06F900752CE0 /* Library.swift */,
 				8B11BA2C29BA21C10095EBFE /* Assets.xcassets */,
 				8B11BA2E29BA21C10095EBFE /* Preview Content */,
@@ -154,7 +162,9 @@
 			files = (
 				8B11BA2B29BA21BF0095EBFE /* ContentView.swift in Sources */,
 				8BDC786F29CB087F00752CE0 /* ListenNow.swift in Sources */,
+				8BDC787929CB121100752CE0 /* Notifications.swift in Sources */,
 				8B11BA2929BA21BF0095EBFE /* FirstProjectApp.swift in Sources */,
+				8BDC787D29CB15CA00752CE0 /* Account.swift in Sources */,
 				8BDC787129CB096F00752CE0 /* Browse.swift in Sources */,
 				8BDC786D29CB06F900752CE0 /* Library.swift in Sources */,
 				8BDC787329CB09CA00752CE0 /* Radio.swift in Sources */,
