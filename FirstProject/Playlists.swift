@@ -17,7 +17,7 @@ struct Playlists: View {
                 Text("Playlists 1")
             }
             .navigationTitle("Playlists")
-            .searchable(text: $searchText)
+            .searchable(text: $searchText, prompt: "Find in Playlists")
         }
     }
 }

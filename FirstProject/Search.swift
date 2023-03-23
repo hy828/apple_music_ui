@@ -28,7 +28,7 @@ struct Search: View {
                 .padding()
             }
             .navigationTitle("Search")
-            .searchable(text: $searchText)
+            .searchable(text: $searchText, prompt: "Artists, Songs, Lyrics and More")
         }
     }
 }

@@ -14,18 +14,10 @@ struct ListenNow: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                Text("Top Picks")
-                    .font(.title2)
-                    .bold()
-                    .padding()
-                    .frame(maxWidth: .infinity,
-                           maxHeight: 30,
-                           alignment: .topLeading)
-                    .border(.red)
                 TopPicks
-                RecentlyPlayed
-                RecentlyPlayed
-                RecentlyPlayed
+                TopPicks
+                TopPicks
+                TopPicks
             }
             .navigationTitle("Listen Now")
             .toolbar {
@@ -42,31 +34,23 @@ struct ListenNow: View {
     }
     
     var TopPicks: some View {
-        ScrollView(.horizontal, showsIndicators: false){
-            HStack {
-                RoundedRectangle(cornerRadius: 15)
-                    .frame(width: 220, height: 270, alignment: .topLeading)
-                RoundedRectangle(cornerRadius: 15)
-                    .frame(width: 220, height: 270, alignment: .topLeading)
-                RoundedRectangle(cornerRadius: 15)
-                    .frame(width: 220, height: 270, alignment: .topLeading)
+        VStack {
+            Text("Top Picks")
+                .font(.title2)
+                .bold()
+                .padding()
+                .frame(maxWidth: .infinity,
+                       maxHeight: 30,
+                       alignment: .topLeading)
+            ScrollView(.horizontal, showsIndicators: false){
+                HStack {
+                    ForEach(1...5, id: \.self) { i in
+                        Album()
+                    }
+                }
             }
+            .padding()
         }
-        .padding()
-    }
-    
-    var RecentlyPlayed: some View {
-        ScrollView(.horizontal, showsIndicators: false){
-            HStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(width: 180, height: 180, alignment: .topLeading)
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(width: 180, height: 180, alignment: .topLeading)
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(width: 180, height: 180, alignment: .topLeading)
-            }
-        }
-        .padding()
     }
 }
 

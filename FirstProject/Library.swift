@@ -18,7 +18,7 @@ struct Library: View {
                         Label("Playlists", systemImage: "music.note.list")
                     }
                     NavigationLink {
-                        
+                        Artists()
                     } label: {
                         Label("Artists", systemImage: "music.mic")
                     }
@@ -75,7 +75,6 @@ struct Library: View {
             .navigationTitle("Library")
         }
     }
-        
 }
 
 struct Library_Previews: PreviewProvider {
