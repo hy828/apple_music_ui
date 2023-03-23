@@ -19,6 +19,8 @@
 		8BDC787929CB121100752CE0 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC787829CB121100752CE0 /* Notifications.swift */; };
 		8BDC787D29CB15CA00752CE0 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC787C29CB15CA00752CE0 /* Account.swift */; };
 		8BE134DD29CB28090008CD97 /* Playlists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE134DC29CB28090008CD97 /* Playlists.swift */; };
+		8BE134E129CC6C620008CD97 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE134E029CC6C620008CD97 /* Category.swift */; };
+		8BE134E329CC6C870008CD97 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE134E229CC6C870008CD97 /* Album.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		8BDC787A29CB15A300752CE0 /* FirstProject */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FirstProject; sourceTree = "<group>"; };
 		8BDC787C29CB15CA00752CE0 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		8BE134DC29CB28090008CD97 /* Playlists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlists.swift; sourceTree = "<group>"; };
+		8BE134E029CC6C620008CD97 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		8BE134E229CC6C870008CD97 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				8BDC787229CB09CA00752CE0 /* Radio.swift */,
 				8BDC787029CB096F00752CE0 /* Browse.swift */,
 				8BDC786E29CB087F00752CE0 /* ListenNow.swift */,
+				8BE134E229CC6C870008CD97 /* Album.swift */,
+				8BE134E029CC6C620008CD97 /* Category.swift */,
 				8BDC787C29CB15CA00752CE0 /* Account.swift */,
 				8BDC787829CB121100752CE0 /* Notifications.swift */,
 				8BDC786C29CB06F900752CE0 /* Library.swift */,
@@ -163,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE134E329CC6C870008CD97 /* Album.swift in Sources */,
 				8B11BA2B29BA21BF0095EBFE /* ContentView.swift in Sources */,
 				8BDC786F29CB087F00752CE0 /* ListenNow.swift in Sources */,
 				8BDC787929CB121100752CE0 /* Notifications.swift in Sources */,
@@ -173,6 +180,7 @@
 				8BDC786D29CB06F900752CE0 /* Library.swift in Sources */,
 				8BDC787329CB09CA00752CE0 /* Radio.swift in Sources */,
 				8BDC787529CB09D900752CE0 /* Search.swift in Sources */,
+				8BE134E129CC6C620008CD97 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
