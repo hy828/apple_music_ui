@@ -11,8 +11,10 @@ struct MusicPlayer: View {
     
     @State private var volume : Double = 0
     @State private var progressBar : Double = 0
-    @State private var showView : Views = .lyrics
+    @State private var showView : Views = .cover
     @State private var isPlaying : Bool = true
+    @Binding var isPresented: Bool
+    @State private var offset: CGSize = .zero
     
     enum Views {
         case cover
@@ -21,19 +23,54 @@ struct MusicPlayer: View {
     }
     
     var body: some View {
-        ZStack {
-            Color.gray
-            VStack {
-                if showView == Views.nextList {
-                    NextList
-                } else if showView == Views.lyrics {
-                    Lyrics
-                } else {
-                    Cover
+        if isPresented {
+            ZStack {
+                LinearGradient(colors: [.cyan, .gray], startPoint: .topTrailing, endPoint: UnitPoint.bottomLeading)
+                    .overlay {
+                        Rectangle()
+                            .opacity(0.5)
+                    }
+                VStack {
+                    Spacer(minLength: 55)
+                    Capsule()
+                        .frame(width: 40, height: 5)
+                        .foregroundColor(.white)
+                        .opacity(0.5)
+                    Spacer()
+                    if showView == Views.nextList {
+                        NextList
+                    } else if showView == Views.lyrics {
+                        Lyrics
+                    } else {
+                        Cover
+                    }
+                    Spacer()
+                    ControlButton
+                    Spacer()
                 }
-                ControlButton
+                .padding()
+                .foregroundColor(.white)
+                .opacity(0.75)
             }
-            .padding()
+            .cornerRadius(30)
+            .ignoresSafeArea()
+            .transition(.move(edge: .bottom))
+            .offset(x: 0, y: offset.height)
+            .animation(.easeInOut, value: offset)
+            .gesture(
+                DragGesture(minimumDistance: 10)
+                    .onChanged { i in
+                        if i.translation.height > 0 {
+                            offset.height = i.translation.height
+                        }
+                    }
+                    .onEnded { i in
+                        if offset.height > 350 {
+                            isPresented.toggle()
+                        }
+                        offset.height = .zero
+                    }
+            )
         }
     }
     
@@ -44,6 +81,7 @@ struct MusicPlayer: View {
                 .resizable()
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .frame(height: 300)
+                .shadow(radius: 10)
             Spacer()
             HStack {
                 VStack {
@@ -57,9 +95,8 @@ struct MusicPlayer: View {
                 Image(systemName: "ellipsis.circle.fill")
                     .imageScale(.large)
             }
-            ProgressBar
+            Spacer()
         }
-        .padding()
     }
     
     var SongTitle: some View {
@@ -78,7 +115,7 @@ struct MusicPlayer: View {
             Spacer()
             Image(systemName: "ellipsis.circle.fill")
         }
-        .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
+        .padding(.top)
     }
     
     var ProgressBar: some View {
@@ -98,7 +135,6 @@ struct MusicPlayer: View {
         VStack {
             SongTitle
             Spacer()
-            ProgressBar
         }
     }
     
@@ -110,10 +146,12 @@ struct MusicPlayer: View {
                     .bold().foregroundColor(.white)
                 Spacer()
                 Image(systemName: "shuffle")
+                    .padding(.trailing, 5)
                 Image(systemName: "repeat")
+                    .padding(.trailing, 5)
                 Image(systemName: "infinity")
             }
-            .padding(EdgeInsets(top: 15, leading: 15, bottom: 0, trailing: 15))
+            .padding(.vertical, 5)
             VStack {
                 ScrollView{
                     ForEach(1...10, id: \.self) { i in
@@ -122,15 +160,21 @@ struct MusicPlayer: View {
                 }
             }
             .frame(maxHeight: .infinity, alignment: .top)
-            .padding(EdgeInsets(top: 0, leading: 15, bottom: 15, trailing: 15))
+            .padding(.vertical, 5)
         }
     }
     
     var ControlButton: some View {
         VStack {
+            if showView == Views.lyrics || showView == Views.cover {
+                ProgressBar
+                    .padding(5)
+            }
             HStack {
+                Spacer()
                 Image(systemName: "backward.fill")
                     .font(.system(size: 30))
+                Spacer()
                 Button() {
                     //待补，变换时有circle渐变，按钮无颜色
                     isPlaying.toggle()
@@ -138,26 +182,26 @@ struct MusicPlayer: View {
                     if isPlaying {
                         Image(systemName: "play.fill")
                             .font(.system(size: 50))
-                            .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 50))
                     } else {
                         Image(systemName: "pause.fill")
                             .font(.system(size: 50))
-                            .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 50))
                     }
                 }
+                Spacer()
                 Image(systemName: "forward.fill")
                     .font(.system(size: 30))
+                Spacer()
             }
+            .padding(.vertical)
             HStack {
                 Image(systemName: "speaker.fill")
-                    .padding()
                 Slider(value: $volume, in: 0...100, step: 10)
                 Image(systemName: "speaker.wave.3.fill")
-                    .padding()
             }
             .imageScale(.small)
-            .padding(EdgeInsets(top: 30, leading: 0, bottom: 10, trailing: 0))
+            .padding(10)
             HStack {
+                Spacer()
                 Button() {
                     if showView == Views.lyrics {
                         showView = Views.cover
@@ -172,8 +216,9 @@ struct MusicPlayer: View {
                         Image(systemName: "quote.bubble")
                     }
                 }
+                Spacer()
                 Image(systemName: "airplayaudio")
-                    .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 50))
+                Spacer()
                 Button() {
                     if showView == Views.nextList {
                         showView = Views.cover
@@ -187,6 +232,7 @@ struct MusicPlayer: View {
                         Image(systemName: "shuffle.circle.fill")
                     }
                 }
+                Spacer()
             }
             .imageScale(.large)
         }
@@ -213,6 +259,6 @@ struct MusicPlayer: View {
 
 struct MusicPlayer_Previews: PreviewProvider {
     static var previews: some View {
-        MusicPlayer()
+        MusicPlayer(isPresented: .constant(true))
     }
 }

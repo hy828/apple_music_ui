@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct Library: View {
+    
+    let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    
     var body: some View {
         NavigationStack {
-            List{
-                Section {
+                List {
                     NavigationLink {
                         Playlists()
                     } label: {
@@ -54,27 +56,31 @@ struct Library: View {
                     }
                 }
                 .font(.title2)
-                Section(header: Text("Recently Added")) {
-                    HStack {
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 150, height: 150, alignment: .topLeading)
-                            .padding()
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 150, height: 150, alignment: .topLeading)
-                            .padding()
-                    }
-                    HStack {
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 150, height: 150, alignment: .topLeading)
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 150, height: 150, alignment: .topLeading)
-                    }
-                }
-            }
-            .listStyle(.plain)
-            .navigationTitle("Library")
+                .listStyle(.plain)
+                .navigationTitle("Library")
+//                Text("Recently Added")
+//                LazyVGrid(columns: columns) {
+//                    ForEach(0...24, id: \.self) { i in
+//                        Album
+//                    }
+//                }
+//                .padding()
         }
     }
+    
+//    var Album: some View {
+//        VStack(alignment: .leading) {
+//            Image("Image")
+//                .resizable()
+//                .clipShape(RoundedRectangle(cornerRadius: 15))
+//                .aspectRatio(1, contentMode: .fill)
+//                .frame(maxWidth: 200, maxHeight: 200)
+//            Text("Floral Sense - The 1st Album")
+//                .lineLimit(1)
+//            Text("YESUNG")
+//                .foregroundColor(.gray)
+//        }
+//    }
 }
 
 struct Library_Previews: PreviewProvider {

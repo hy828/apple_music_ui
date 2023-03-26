@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selection: Tab = .library
+    
+    @State private var selection : Tab = .library
     
     enum Tab {
         case listenNow
@@ -19,32 +20,35 @@ struct ContentView: View {
     }
     
     var body: some View {
-        TabView(selection: $selection) {
-            ListenNow()
-                .tabItem {
-                    Image(systemName: "play.circle.fill")
-                    Text("Listen Now")
-                }
-            Browse()
-                .tabItem {
-                    Image(systemName: "square.grid.2x2.fill")
-                    Text("Browse")
-                }
-            Radio()
-                .tabItem {
-                    Image(systemName: "dot.radiowaves.left.and.right")
-                    Text("Radio")
-                }
-            Library()
-                .tabItem {
-                    Image(systemName: "square.stack.fill")
-                    Text("Library")
-                }
-            Search()
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
-                }
+        ZStack(alignment: .bottom) {
+            TabView(selection: $selection) {
+                ListenNow()
+                    .tabItem {
+                        Image(systemName: "play.circle.fill")
+                        Text("Listen Now")
+                    }
+                Browse()
+                    .tabItem {
+                        Image(systemName: "square.grid.2x2.fill")
+                        Text("Browse")
+                    }
+                Radio()
+                    .tabItem {
+                        Image(systemName: "dot.radiowaves.left.and.right")
+                        Text("Radio")
+                    }
+                Library()
+                    .tabItem {
+                        Image(systemName: "play.square.stack.fill")
+                        Text("Library")
+                    }
+                Search()
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                        Text("Search")
+                    }
+            }
+            MiniMusicPlayer()
         }
     }
     

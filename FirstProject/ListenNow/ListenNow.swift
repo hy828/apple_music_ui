@@ -45,11 +45,25 @@ struct ListenNow: View {
             ScrollView(.horizontal, showsIndicators: false){
                 HStack {
                     ForEach(1...5, id: \.self) { i in
-                        Album()
+                        Album
                     }
                 }
             }
             .padding()
+        }
+    }
+    
+    var Album: some View {
+        VStack(alignment: .leading) {
+            Image("Image")
+                .resizable()
+                .clipShape(RoundedRectangle(cornerRadius: 15))
+                .aspectRatio(1, contentMode: .fill)
+                .frame(maxWidth: 200, maxHeight: 200)
+            Text("Floral Sense - The 1st Album")
+                .lineLimit(1)
+            Text("YESUNG")
+                .foregroundColor(.gray)
         }
     }
 }
