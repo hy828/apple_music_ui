@@ -14,6 +14,7 @@
 		8B5922E429CC96B600AB9A67 /* Artists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5922E329CC96B600AB9A67 /* Artists.swift */; };
 		8B5922E629CCBE2C00AB9A67 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5922E529CCBE2C00AB9A67 /* MusicPlayer.swift */; };
 		8B5922EB29D00D3F00AB9A67 /* MiniMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5922EA29D00D3F00AB9A67 /* MiniMusicPlayer.swift */; };
+		8B5922ED29D0788A00AB9A67 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5922EC29D0788A00AB9A67 /* Artist.swift */; };
 		8BDC786D29CB06F900752CE0 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC786C29CB06F900752CE0 /* Library.swift */; };
 		8BDC786F29CB087F00752CE0 /* ListenNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC786E29CB087F00752CE0 /* ListenNow.swift */; };
 		8BDC787129CB096F00752CE0 /* Browse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC787029CB096F00752CE0 /* Browse.swift */; };
@@ -35,6 +36,7 @@
 		8B5922E329CC96B600AB9A67 /* Artists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artists.swift; sourceTree = "<group>"; };
 		8B5922E529CCBE2C00AB9A67 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		8B5922EA29D00D3F00AB9A67 /* MiniMusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMusicPlayer.swift; sourceTree = "<group>"; };
+		8B5922EC29D0788A00AB9A67 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		8BDC786C29CB06F900752CE0 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		8BDC786E29CB087F00752CE0 /* ListenNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenNow.swift; sourceTree = "<group>"; };
 		8BDC787029CB096F00752CE0 /* Browse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Browse.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				8B11BA2829BA21BF0095EBFE /* FirstProjectApp.swift */,
 				8B11BA2A29BA21BF0095EBFE /* ContentView.swift */,
 				8BE134E229CC6C870008CD97 /* Album.swift */,
+				8B5922EC29D0788A00AB9A67 /* Artist.swift */,
 				8B5922E529CCBE2C00AB9A67 /* MusicPlayer.swift */,
 				8B5922EA29D00D3F00AB9A67 /* MiniMusicPlayer.swift */,
 				8B5922E729CD4E7B00AB9A67 /* Search */,
@@ -216,6 +219,7 @@
 				8BDC786D29CB06F900752CE0 /* Library.swift in Sources */,
 				8BDC787329CB09CA00752CE0 /* Radio.swift in Sources */,
 				8BDC787529CB09D900752CE0 /* Search.swift in Sources */,
+				8B5922ED29D0788A00AB9A67 /* Artist.swift in Sources */,
 				8BE134E129CC6C620008CD97 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
