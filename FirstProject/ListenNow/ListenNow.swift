@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ListenNow: View {
     
-    @State private var showingAccount = false
+    @State private var showingAccount = true
     private var data = AlbumDetail.data
     
     var body: some View {
@@ -33,8 +33,9 @@ struct ListenNow: View {
                 .foregroundColor(.red)
             }
             .sheet(isPresented: $showingAccount) {
-                Account()
+                Account(showingAccount: showingAccount)
             }
+            Spacer(minLength: 50)
         }
     }
     

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct RadioCategory {
+struct RadioCategory: Hashable {
     let id = UUID()
     var title: String
     var genre: String

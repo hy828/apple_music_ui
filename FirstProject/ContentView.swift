@@ -39,7 +39,7 @@ struct ContentView: View {
                     }
                 Library()
                     .tabItem {
-                        Image(systemName: "note.square.stack.fill")
+                        Image(systemName: "square.stack.fill")
                         Text("Library")
                     }
                 Search()

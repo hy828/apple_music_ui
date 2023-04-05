@@ -29,6 +29,7 @@ struct Search: View {
             }
             .navigationTitle("Search")
             .searchable(text: $searchText, prompt: "Artists, Songs, Lyrics and More")
+            Spacer(minLength: 50)
         }
     }
 }

@@ -18,6 +18,8 @@
 		8BB9370D29D9A58800586749 /* LibraryCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9370C29D9A58800586749 /* LibraryCategory.swift */; };
 		8BB9371129DC018E00586749 /* RadioCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9371029DC018D00586749 /* RadioCategory.swift */; };
 		8BB9371329DD39F400586749 /* AlbumDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9371229DD39F400586749 /* AlbumDetail.swift */; };
+		8BB9371529DD404C00586749 /* RadioRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9371429DD404C00586749 /* RadioRow.swift */; };
+		8BB9371729DD51B700586749 /* MoreToExplore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9371629DD51B700586749 /* MoreToExplore.swift */; };
 		8BDC786D29CB06F900752CE0 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC786C29CB06F900752CE0 /* Library.swift */; };
 		8BDC786F29CB087F00752CE0 /* ListenNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC786E29CB087F00752CE0 /* ListenNow.swift */; };
 		8BDC787129CB096F00752CE0 /* Browse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC787029CB096F00752CE0 /* Browse.swift */; };
@@ -43,6 +45,8 @@
 		8BB9370C29D9A58800586749 /* LibraryCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCategory.swift; sourceTree = "<group>"; };
 		8BB9371029DC018D00586749 /* RadioCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioCategory.swift; sourceTree = "<group>"; };
 		8BB9371229DD39F400586749 /* AlbumDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumDetail.swift; sourceTree = "<group>"; };
+		8BB9371429DD404C00586749 /* RadioRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioRow.swift; sourceTree = "<group>"; };
+		8BB9371629DD51B700586749 /* MoreToExplore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreToExplore.swift; sourceTree = "<group>"; };
 		8BDC786C29CB06F900752CE0 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		8BDC786E29CB087F00752CE0 /* ListenNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenNow.swift; sourceTree = "<group>"; };
 		8BDC787029CB096F00752CE0 /* Browse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Browse.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				8B5922EA29D00D3F00AB9A67 /* MiniMusicPlayer.swift */,
 				8B5922E729CD4E7B00AB9A67 /* Search */,
 				8BDC787229CB09CA00752CE0 /* Radio.swift */,
+				8BB9371629DD51B700586749 /* MoreToExplore.swift */,
+				8BB9371429DD404C00586749 /* RadioRow.swift */,
 				8BDC787029CB096F00752CE0 /* Browse.swift */,
 				8B5922E829CD4E9700AB9A67 /* ListenNow */,
 				8B5922E929CD4EB100AB9A67 /* Library */,
@@ -222,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BB9371529DD404C00586749 /* RadioRow.swift in Sources */,
 				8BE134E329CC6C870008CD97 /* Album.swift in Sources */,
 				8B11BA2B29BA21BF0095EBFE /* ContentView.swift in Sources */,
 				8BDC786F29CB087F00752CE0 /* ListenNow.swift in Sources */,
@@ -238,6 +245,7 @@
 				8BB9371129DC018E00586749 /* RadioCategory.swift in Sources */,
 				8BDC787529CB09D900752CE0 /* Search.swift in Sources */,
 				8BB9370D29D9A58800586749 /* LibraryCategory.swift in Sources */,
+				8BB9371729DD51B700586749 /* MoreToExplore.swift in Sources */,
 				8BB9371329DD39F400586749 /* AlbumDetail.swift in Sources */,
 				8B5922ED29D0788A00AB9A67 /* Artist.swift in Sources */,
 				8BE134E129CC6C620008CD97 /* Category.swift in Sources */,

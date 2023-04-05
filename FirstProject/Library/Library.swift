@@ -14,23 +14,23 @@ struct Library: View {
     
     var body: some View {
         NavigationStack {
-                List {
-                    ForEach(data, id: \.id) { i in
-                        HStack {
-                            Image(systemName: i.icon)
-                                .foregroundColor(.red)
-                            Text(i.title)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.gray)
-                                .font(.system(size: 14))
-                        }
+            List {
+                ForEach(data, id: \.id) { i in
+                    HStack {
+                        Image(systemName: i.icon)
+                            .foregroundColor(.red)
+                        Text(i.title)
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.gray)
+                            .font(.system(size: 14))
                     }
-                    
                 }
-                .font(.title2)
-                .listStyle(.plain)
-                .navigationTitle("Library")
+                
+            }
+            .font(.title2)
+            .listStyle(.plain)
+            .navigationTitle("Library")
         }
     }
     

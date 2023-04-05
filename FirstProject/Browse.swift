@@ -10,6 +10,7 @@ import SwiftUI
 struct Browse: View {
     
     private var data = AlbumDetail.data
+    let moreToExplore = ["Browse by Category", "Top Charts", "Chill", "Essentials", "Kids", "Music Videos"]
     
     var body: some View {
         NavigationStack {
@@ -17,21 +18,24 @@ struct Browse: View {
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack {
                         ForEach(1...5, id: \.self) { i in
-                            type1
+                            Type1
                         }
                     }
                 }
                 .padding([.top, .leading])
-                type2
+                Type2
                     .padding([.top, .leading])
-                type3
+                Type3
                     .padding([.top, .leading])
+                MoreToExplore(list: moreToExplore)
+                
             }
             .navigationTitle("Browse")
+            Spacer(minLength: 50)
         }
     }
     
-    var type1: some View {
+    var Type1: some View {
         VStack(alignment: .leading) {
             Text("NEW SINGLE + PRE-ADD NOW")
                 .font(.caption2)
@@ -65,7 +69,7 @@ struct Browse: View {
         }
     }
     
-    var type2: some View {
+    var Type2: some View {
         VStack {
             HStack {
                 Text("Now in Spatial Audio")
@@ -79,14 +83,14 @@ struct Browse: View {
             ScrollView(.horizontal, showsIndicators: false){
                 HStack {
                     ForEach(1...5, id: \.self) { i in
-                        type2_element
+                        Type2Item
                     }
                 }
             }
         }
     }
     
-    var type2_element: some View {
+    var Type2Item: some View {
         NavigationLink {
             Album(i: data[0])
         } label: {
@@ -105,7 +109,7 @@ struct Browse: View {
         }
     }
     
-    var type3: some View {
+    var Type3: some View {
         VStack {
             Text("Music by Mood")
                 .font(.title3)
@@ -114,14 +118,14 @@ struct Browse: View {
             ScrollView(.horizontal, showsIndicators: false){
                 HStack {
                     ForEach(1...5, id: \.self) { i in
-                        type3_element
+                        Type3Item
                     }
                 }
             }
         }
     }
     
-    var type3_element: some View {
+    var Type3Item: some View {
         VStack(alignment: .leading) {
             Image("Image")
                 .resizable()
