@@ -8,22 +8,29 @@
 import SwiftUI
 
 struct Album: View {
+    
+    var i: AlbumDetail
+    
     var body: some View {
         VStack {
             ScrollView {
-                Image("Image")
+                Image(i.image)
                     .resizable()
                     .clipShape(RoundedRectangle(cornerRadius: 15))
                     .aspectRatio(1, contentMode: .fill)
                     .frame(maxWidth: 250, maxHeight: 250)
                     .shadow(radius: 3)
-                Text("Drunk on love - The 2nd Mini Album")
+                Text(i.title)
                     .font(.title3)
                     .bold()
-                Text("RYEOWOOK")
-                    .font(.title3)
-                    .foregroundColor(.red)
-                Text("K-Pop · 2019 · Lossless")
+                NavigationLink {
+                    Artist()
+                } label: {
+                    Text(i.artist)
+                        .font(.title3)
+                        .foregroundColor(.red)
+                }
+                Text("\(i.genre) · \(i.year) · Lossless")
                     .font(.caption2)
                     .foregroundColor(.secondary)
                     .bold()
@@ -50,9 +57,9 @@ struct Album: View {
                 }
                 .listStyle(.sidebar)
                 Section {
-                    Text("1 January 2019")
-                    Text("4 songs, 15 minutes")
-                    Text("2019 SM Entertainment, Label SJ")
+                    Text(i.date)
+                    Text("\(i.song.count) songs, \(i.duration) minutes")
+                    Text("\(i.year) SM Entertainment, Label SJ")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.secondary)
@@ -106,21 +113,21 @@ struct Album: View {
         }
     }
     
-    var Album: some View {
-        VStack(alignment: .leading) {
-            Image("Image")
-                .resizable()
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .frame(maxWidth: 180, maxHeight: 180)
-            Text("Floral Sense - The 1st Album")
-                .lineLimit(2)
-        }
-        .frame(width: 180)
-    }
+//    var Album: some View {
+//        VStack(alignment: .leading) {
+//            Image("Image")
+//                .resizable()
+//                .clipShape(RoundedRectangle(cornerRadius: 10))
+//                .frame(maxWidth: 180, maxHeight: 180)
+//            Text("Floral Sense - The 1st Album")
+//                .lineLimit(2)
+//        }
+//        .frame(width: 180)
+//    }
 }
 
 struct Album_Previews: PreviewProvider {
     static var previews: some View {
-        Album()
+        Album(i: AlbumDetail.data[0])
     }
 }

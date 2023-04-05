@@ -12,7 +12,7 @@ struct MusicPlayer: View {
     @State private var volume : Double = 0
     @State private var progressBar : Double = 0
     @State private var showView : Views = .cover
-    @State private var isPlaying : Bool = true
+    @State private var isPlaying : Bool = false
     @Binding var isPresented: Bool
     @State private var offset: CGSize = .zero
     
@@ -31,7 +31,7 @@ struct MusicPlayer: View {
                             .opacity(0.5)
                     }
                 VStack {
-                    Spacer(minLength: 55)
+                    Spacer(minLength: 60)
                     Capsule()
                         .frame(width: 40, height: 5)
                         .foregroundColor(.white)
@@ -48,7 +48,7 @@ struct MusicPlayer: View {
                     ControlButton
                     Spacer()
                 }
-                .padding()
+                .padding(.horizontal)
                 .foregroundColor(.white)
                 .opacity(0.75)
             }
@@ -76,13 +76,17 @@ struct MusicPlayer: View {
     
     var Cover: some View {
         VStack {
-            Spacer()
-            Image("Image")
-                .resizable()
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .frame(height: 300)
-                .shadow(radius: 10)
-            Spacer()
+            VStack {
+                Image("Image")
+                    .resizable()
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .frame(
+                        width: isPlaying ? 250 : 350,
+                        height: isPlaying ? 250 : 350
+                    )
+                    .shadow(radius: 10)
+            }
+            .frame(width: 350, height: 350)
             HStack {
                 VStack {
                     Text("Without You")
@@ -95,7 +99,8 @@ struct MusicPlayer: View {
                 Image(systemName: "ellipsis.circle.fill")
                     .imageScale(.large)
             }
-            Spacer()
+            .frame(height: 80, alignment: .bottom)
+            .padding(.horizontal, 5)
         }
     }
     
@@ -159,7 +164,7 @@ struct MusicPlayer: View {
                     }
                 }
             }
-            .frame(maxHeight: .infinity, alignment: .top)
+            .frame(maxHeight: 450, alignment: .top)
             .padding(.vertical, 5)
         }
     }
@@ -177,15 +182,12 @@ struct MusicPlayer: View {
                 Spacer()
                 Button() {
                     //待补，变换时有circle渐变，按钮无颜色
-                    isPlaying.toggle()
-                } label: {
-                    if isPlaying {
-                        Image(systemName: "play.fill")
-                            .font(.system(size: 50))
-                    } else {
-                        Image(systemName: "pause.fill")
-                            .font(.system(size: 50))
+                    withAnimation(.spring()) {
+                        isPlaying.toggle()
                     }
+                } label: {
+                    Image(systemName: isPlaying ? "play.fill" : "pause.fill")
+                        .font(.system(size: 50))
                 }
                 Spacer()
                 Image(systemName: "forward.fill")

@@ -16,7 +16,7 @@ struct Category: View {
             Image("Image")
                 .resizable()
                 .clipShape(RoundedRectangle(cornerRadius: 8))
-            Text(Category.genre[value])
+            Text(genre[value])
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
                 .foregroundColor(.white)
                 .font(.footnote)
@@ -26,7 +26,7 @@ struct Category: View {
         .frame(height: 125)
     }
     
-    static var genre: [String] = [
+    let genre: [String] = [
         "Spatial Audio",
         "K-Pop",
         "International",
