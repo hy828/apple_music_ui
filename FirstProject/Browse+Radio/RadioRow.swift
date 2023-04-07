@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 
+// Radio电台横向列表
 struct RadioRow: View {
     
     var ind: Int

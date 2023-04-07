@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Account: from Listen Now
 struct Account: View {
     
     @State var isAccess = true
@@ -15,44 +16,40 @@ struct Account: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                
-                List {
-                    Section(footer: Text("Just , more per month for up to 6 people.").foregroundColor(.gray)) {
-                        Text("Redeem Gift Card or Code")
-                        Text("Add Funds to Apple ID")
-                        Text("Manage Subscription")
-                        Text("Upgrade to Family Plan")
-                    }
-                    .foregroundColor(.red)
-                    Section {
-                        NavigationLink {
-                            Notifications()
-                        } label: {
-                            Text("Notifications")
-                        }
-                    }
-                    Section(header: Text("APPS WITH ACCESS")) {
-                        Toggle("Apple Store App", isOn: $isAccess)
-                    }
-                    Section {
-                        Text("Account Settings")
-                            .foregroundColor(.red)
-                    }
+            List {
+                Section(footer: Text("Just , more per month for up to 6 people.").foregroundColor(.gray)) {
+                    Text("Redeem Gift Card or Code")
+                    Text("Add Funds to Apple ID")
+                    Text("Manage Subscription")
+                    Text("Upgrade to Family Plan")
                 }
-                .toolbar{
-                    Button {
-                        showingAccount.toggle()
+                .foregroundColor(.red)
+                Section {
+                    NavigationLink {
+                        Notifications()
                     } label: {
-                        Text("Done")
-                            .bold()
-                            .foregroundColor(.red)
+                        Text("Notifications")
                     }
                 }
-                Text("Account")
-                    .bold()
-                    .offset(y: -375)
+                Section(header: Text("APPS WITH ACCESS")) {
+                    Toggle("Apple Store App", isOn: $isAccess)
+                }
+                Section {
+                    Text("Account Settings")
+                        .foregroundColor(.red)
+                }
             }
+            .toolbar{
+                Button { // 点击按钮后关闭sheet
+                    showingAccount.toggle()
+                } label: {
+                    Text("Done")
+                        .bold()
+                        .foregroundColor(.red)
+                }
+            }
+            .navigationTitle("Account")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

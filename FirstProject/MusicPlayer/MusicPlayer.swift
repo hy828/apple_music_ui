@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// 音乐播放器
 struct MusicPlayer: View {
     
     @State var volume : Double = 0
@@ -19,14 +20,15 @@ struct MusicPlayer: View {
     var albums = [AlbumDetail.recentlyPlayed, AlbumDetail.kpop, AlbumDetail.newReleases, AlbumDetail.mandapop]
     
     enum Views {
-        case cover
-        case lyrics
-        case nextList
+        case cover // 主界面
+        case lyrics // 歌词界面
+        case nextList // 播放列表
     }
     
     var body: some View {
         if isPresented {
             ZStack {
+                // 背景色
                 LinearGradient(colors: [.red, .brown], startPoint: .topTrailing, endPoint: .bottomLeading)
                     .overlay {
                         Rectangle()
@@ -34,12 +36,10 @@ struct MusicPlayer: View {
                     }
                 VStack {
                     Spacer(minLength: 60)
-                    Capsule()
+                    Capsule() // 下拉条
                         .frame(width: 40, height: 5)
                         .foregroundColor(.white)
                         .opacity(0.5)
-//                        .padding(.bottom, 30)
-//                    Spacer()
                     if showView == Views.nextList {
                         NextList
                     } else if showView == Views.lyrics {
@@ -47,7 +47,6 @@ struct MusicPlayer: View {
                     } else {
                         Cover
                     }
-//                    Spacer()
                     ControlButton
                     Spacer(minLength: 50)
                 }
@@ -61,7 +60,7 @@ struct MusicPlayer: View {
             .offset(x: 0, y: offset.height)
             .animation(.easeInOut, value: offset)
             .gesture(
-                DragGesture(minimumDistance: 10)
+                DragGesture(minimumDistance: 10) // 下拉手势：缩小界面
                     .onChanged { i in
                         if i.translation.height > 0 {
                             offset.height = i.translation.height
@@ -83,7 +82,7 @@ struct MusicPlayer: View {
                 Image(album.image)
                     .resizable()
                     .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .frame(
+                    .frame( // 歌曲播放时放大图片，歌曲暂停则缩小图片
                         width: isPlaying ? 250 : 350,
                         height: isPlaying ? 250 : 350
                     )
@@ -91,7 +90,7 @@ struct MusicPlayer: View {
             }
             .frame(width: 350, height: 350)
             .padding(.vertical)
-            HStack {
+            HStack { // 歌名和歌手
                 VStack {
                     Text(album.song[2])
                         .bold()
@@ -101,7 +100,6 @@ struct MusicPlayer: View {
                 }
                 .foregroundColor(.white)
                 .font(.title2)
-//                Spacer()
                 Image(systemName: "ellipsis.circle.fill")
                     .imageScale(.large)
             }
@@ -111,7 +109,7 @@ struct MusicPlayer: View {
         .frame(minHeight: 500, maxHeight: 500)
     }
     
-    var SongTitle: some View {
+    var SongTitle: some View { // 歌名和歌手
         HStack {
             Image(album.image)
                 .resizable()
@@ -129,7 +127,7 @@ struct MusicPlayer: View {
         }
     }
     
-    var ProgressBar: some View {
+    var ProgressBar: some View { // 歌曲进度条
         VStack {
             Slider(value: $progressBar)
             HStack {
@@ -142,10 +140,10 @@ struct MusicPlayer: View {
         }
     }
     
-    var Lyrics: some View {
+    var Lyrics: some View { // 歌词
         VStack {
             SongTitle
-            Rectangle() //Lyrics
+            Rectangle() // 放置歌词
                 .opacity(0)
                 .frame(minHeight: 400, maxHeight: 400)
         }
@@ -153,7 +151,7 @@ struct MusicPlayer: View {
         .frame(minHeight: 500, maxHeight: 500)
     }
     
-    var NextList: some View {
+    var NextList: some View { // 播放列表
         VStack {
             SongTitle
             HStack {
@@ -175,7 +173,7 @@ struct MusicPlayer: View {
         .frame(minHeight: 572, maxHeight: 572)
     }
     
-    var ControlButton: some View {
+    var ControlButton: some View { // 播放控件
         VStack {
             if showView == Views.lyrics || showView == Views.cover {
                 ProgressBar
@@ -187,12 +185,11 @@ struct MusicPlayer: View {
                     .font(.system(size: 30))
                 Spacer()
                 Button() {
-                    //待补，变换时有circle渐变，按钮无颜色
                     withAnimation(.spring()) {
                         isPlaying.toggle()
                     }
                 } label: {
-                    Image(systemName: isPlaying ? "play.fill" : "pause.fill")
+                    Image(systemName: isPlaying ? "play.fill" : "pause.fill") // 播放或暂停
                         .font(.system(size: 50))
 //                        .overlay(
 //                            Circle()
@@ -208,7 +205,7 @@ struct MusicPlayer: View {
                 Spacer()
             }
             .padding(.vertical, 20)
-            HStack {
+            HStack { // 声量
                 Image(systemName: "speaker.fill")
                 Slider(value: $volume, in: 0...100, step: 10)
                 Image(systemName: "speaker.wave.3.fill")

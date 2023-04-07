@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// More to Explore (List)
 struct MoreToExplore: View {
     
     var list: [String]
@@ -34,7 +35,7 @@ struct MoreToExplore: View {
             }
             .listStyle(.plain)
             .font(.title2)
-            .frame(minHeight: minRowHeight * CGFloat(list.count))
+            .frame(minHeight: minRowHeight * CGFloat(list.count)) // 不设置的话无法显示，因为会跟ScrollView矛盾
             .offset(y: -5)
             Spacer(minLength: 60)
         }

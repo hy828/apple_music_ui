@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Library列表
 struct LibraryCategory {
     let id = UUID()
     var title: String

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Radio
 struct Radio: View {
     
     let category = ["Top Stations", "Worldwide Stations", "Stations by Genre"]

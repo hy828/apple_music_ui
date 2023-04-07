@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Search界面的元素
 struct Category: View {
     
     let value: String

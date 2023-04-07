@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// 音乐播放器缩小版
 struct MiniMusicPlayer: View {
     
     @State private var isPresented = false
@@ -43,7 +44,7 @@ struct MiniMusicPlayer: View {
         .overlay(Divider(), alignment: .bottom)
         .background(.bar)
         .offset(y: -49)
-        .onTapGesture {
+        .onTapGesture { // 点击后显示全屏
             withAnimation {
                 isPresented.toggle()
             }

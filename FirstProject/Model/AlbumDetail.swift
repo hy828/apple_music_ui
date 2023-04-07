@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  AlbumDetail.swift
 //  FirstProject
 //
 //  Created by lhy on 2023/3/31.
@@ -7,6 +7,7 @@
 
 import Foundation
 
+// 歌曲信息
 struct AlbumDetail: Hashable {
     let id = UUID()
     var title: String

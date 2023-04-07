@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Listen Now
 struct ListenNow: View {
     
     @State private var showingAccount = false
@@ -14,26 +15,27 @@ struct ListenNow: View {
     let category = ["Recently Played", "K-Pop", "New Releases", "Mandapop"]
     
     var body: some View {
-        ZStack {
-            NavigationStack {
-                ScrollView {
-                    Type1
-                }
-                .navigationTitle("Listen Now")
-                .sheet(isPresented: $showingAccount) {
-                    Account(showingAccount: $showingAccount)
-                }
-                Spacer(minLength: 50)
+        NavigationStack {
+            ScrollView {
+                
+                Type1
             }
-            Button {
-                showingAccount.toggle()
-            } label: {
-                Image(systemName: "person.crop.circle")
-                    .font(.system(size: 35))
-                    .bold()
+            .navigationTitle("Listen Now")
+            .toolbar {
+                Button {
+                    showingAccount.toggle()
+                } label: {
+                    Image(systemName: "person.crop.circle")
+                        .font(.system(size: 30))
+                        .bold()
+                }
+//                .position(x: 25, y: 65) // 没法和navigation title 同一行，会无法点击
+                .foregroundColor(.red)
             }
-            .position(x: 350, y: 60)
-            .foregroundColor(.red)
+            .sheet(isPresented: $showingAccount) {
+                Account(showingAccount: $showingAccount)
+            }
+            Spacer(minLength: 50)
         }
     }
     

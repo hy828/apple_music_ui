@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Notifications: from Account
 struct Notifications: View {
     
     @State private var newMusic = false

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Browse
 struct Browse: View {
     
     private var data = AlbumDetail.nowInSA

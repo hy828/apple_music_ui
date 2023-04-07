@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Album: from Listen Now
 struct Album: View {
     
     var i: AlbumDetail

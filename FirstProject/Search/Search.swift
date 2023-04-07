@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Search
 struct Search: View {
     
     @State private var searchText: String = ""
@@ -31,7 +32,7 @@ struct Search: View {
                 .padding()
             }
             .navigationTitle("Search")
-            .searchable(text: $searchText, prompt: "Artists, Songs, Lyrics and More")
+            .searchable(text: $searchText, prompt: "Artists, Songs, Lyrics and More") //搜索框
             Spacer(minLength: 50)
         }
     }

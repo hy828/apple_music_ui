@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Radio电台信息
 struct RadioCategory: Hashable {
     let id = UUID()
     var title: String
