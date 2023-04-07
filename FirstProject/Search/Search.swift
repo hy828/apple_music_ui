@@ -11,6 +11,9 @@ struct Search: View {
     
     @State private var searchText: String = ""
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    let genre: [String] = [
+        "Acoustic", "Christmas", "Classical", "Live", "Soul", "Alternative", "Classic Rock", "Hard Rock", "Rock", "Spatial"
+    ]
     
     var body: some View {
         NavigationStack {
@@ -21,7 +24,7 @@ struct Search: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 5, leading: 15, bottom: -15, trailing: 0))
                 LazyVGrid(columns: columns) {
-                    ForEach(0...24, id: \.self) { i in
+                    ForEach(genre, id: \.self) { i in
                         Category(value: i)
                     }
                 }

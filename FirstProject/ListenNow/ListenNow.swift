@@ -9,69 +9,71 @@ import SwiftUI
 
 struct ListenNow: View {
     
-    @State private var showingAccount = true
-    private var data = AlbumDetail.data
+    @State private var showingAccount = false
+    private var data = [AlbumDetail.recentlyPlayed, AlbumDetail.kpop, AlbumDetail.newReleases, AlbumDetail.mandapop]
+    let category = ["Recently Played", "K-Pop", "New Releases", "Mandapop"]
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                TopPicks
-                TopPicks
-                TopPicks
-                TopPicks
-            }
-            .navigationTitle("Listen Now")
-            .toolbar {
-                Button {
-                    showingAccount.toggle()
-                } label: {
-                    Label("Account", systemImage: "person.crop.circle")
-                        .font(.system(size: 25))
-                        .bold()
+        ZStack {
+            NavigationStack {
+                ScrollView {
+                    Type1
                 }
-                .offset(y: 45)
-                .foregroundColor(.red)
+                .navigationTitle("Listen Now")
+                .sheet(isPresented: $showingAccount) {
+                    Account(showingAccount: $showingAccount)
+                }
+                Spacer(minLength: 50)
             }
-            .sheet(isPresented: $showingAccount) {
-                Account(showingAccount: showingAccount)
+            Button {
+                showingAccount.toggle()
+            } label: {
+                Image(systemName: "person.crop.circle")
+                    .font(.system(size: 35))
+                    .bold()
             }
-            Spacer(minLength: 50)
+            .position(x: 350, y: 60)
+            .foregroundColor(.red)
         }
     }
     
-    var TopPicks: some View {
+    var Type1: some View {
         VStack {
-            Text("Top Picks")
-                .font(.title2)
-                .bold()
-                .padding()
-                .frame(maxWidth: .infinity,
-                       maxHeight: 30,
-                       alignment: .topLeading)
-            ScrollView(.horizontal, showsIndicators: false){
-                HStack {
-                    ForEach(data, id: \.id) { i in
-                        NavigationLink {
-                            Album(i: i)
-                        } label: {
-                            VStack(alignment: .leading) {
-                                Image(i.image)
-                                    .resizable()
-                                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                                    .aspectRatio(1, contentMode: .fill)
-                                    .frame(height: 200)
-                                Text(i.title)
-                                    .lineLimit(1)
-                                    .foregroundColor(.black)
-                                Text(i.artist)
-                                    .foregroundColor(.secondary)
+            ForEach(0..<category.count, id: \.self) { i in
+                Text(category[i])
+                    .font(.title2)
+                    .bold()
+                    .padding()
+                    .frame(maxWidth: .infinity,
+                           maxHeight: 30,
+                           alignment: .topLeading)
+                ScrollView(.horizontal, showsIndicators: false){
+                    HStack {
+                        ForEach(data[i], id: \.id) { j in
+                            NavigationLink {
+                                Album(i: j)
+                            } label: {
+                                VStack(alignment: .leading) {
+                                    Image(j.image)
+                                        .resizable()
+                                        .frame(maxWidth: 175, maxHeight: 175)
+                                        .scaledToFill()
+                                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                                        .aspectRatio(1, contentMode: .fill)
+                                    Text(j.title)
+                                        .lineLimit(1)
+                                        .foregroundColor(.black)
+                                    Text(j.artist)
+                                        .lineLimit(1)
+                                        .foregroundColor(.secondary)
+                                }
+                                .frame(maxWidth: 175)
                             }
-                            .frame(width: 200)
                         }
                     }
                 }
+                .padding([.top, .leading, .bottom])
             }
-            .padding([.top, .leading, .bottom])
         }
     }
     

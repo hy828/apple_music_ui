@@ -11,38 +11,38 @@ import SwiftUI
 struct RadioCategory: Hashable {
     let id = UUID()
     var title: String
-    var genre: String
     var group: String
-    var color: [Color]
+    var image: String
 }
 
 extension RadioCategory {
     static var topStations = [
-        RadioCategory(title: "Hip-Hop Station", genre: "Hip-Hop", group: "Apple Music Hip-Hop", color: [.blue, .cyan]),
-        RadioCategory(title: "Pop Station", genre: "Pop", group: "Apple Music Pop", color: [.blue, .cyan]),
-        RadioCategory(title: "Alternative Station", genre: "Alternative", group: "Apple Music Alternative", color: [.blue, .cyan]),
-        RadioCategory(title: "R&B Station", genre: "R&B", group: "Apple Music R&B", color: [.blue, .cyan]),
-        RadioCategory(title: "'80s Hits Station", genre: "'80s Hits", group: "Apple Music Hits", color: [.blue, .cyan]),
-        RadioCategory(title: "Classic Rock Station", genre: "Classic Rock", group: "Apple Music Classic Rock", color: [.blue, .cyan]),
-        RadioCategory(title: "Chill Station", genre: "Chill", group: "Apple Music Chill", color: [.blue, .cyan]),
-        RadioCategory(title: "Classical Station", genre: "Classical", group: "Apple Music Classical", color: [.blue, .cyan]),
-        RadioCategory(title: "Spa Station", genre: "Spa", group: "Apple Music Chill", color: [.blue, .cyan]),
+        RadioCategory(title: "Hip-Hop Station", group: "Apple Music Hip-Hop", image: "Hip-Hop"),
+        RadioCategory(title: "Pop Station", group: "Apple Music Pop", image: "Pop"),
+        RadioCategory(title: "Alternative Station", group: "Apple Music Alternative", image: "Alternative2"),
+        RadioCategory(title: "R&B Station", group: "Apple Music R&B", image: "R&B"),
+        RadioCategory(title: "'80s Hits Station", group: "Apple Music Hits", image: "'80s Hits"),
+        RadioCategory(title: "Piano Station", group: "Apple Music Piano", image: "Piano"),
+        RadioCategory(title: "Choral Station", group: "Apple Music Choral", image: "Choral"),
+        RadioCategory(title: "Classical Station", group: "Apple Music Classical", image: "Classical2"),
+        RadioCategory(title: "Spa Station", group: "Apple Music Chill", image: "Spa"),
     ]
     
     static var worldwideStations = [
-        RadioCategory(title: "K-Pop Station", genre: "K-Pop", group: "Apple Music K-Pop", color: [.blue, .cyan]),
-        RadioCategory(title: "Cantopop Station", genre: "Cantopop", group: "Apple Music Cantopop", color: [.blue, .cyan]),
-        RadioCategory(title: "Brazilian Pop Station", genre: "Brazilian Pop", group: "Apple Music Brazilian Pop", color: [.blue, .cyan]),
+        RadioCategory(title: "J-Pop Station", group: "Apple Music J-Pop", image: "J-Pop"),
+        RadioCategory(title: "Cantopop Station", group: "Apple Music Cantopop", image: "Cantopop"),
+        RadioCategory(title: "Mandapop Station", group: "Apple Music Mandapop", image: "Mandapop"),
+        RadioCategory(title: "Korean TV Drama Hits Station", group: "Apple Music Film & TV", image: "Korean TV Drama Hits"),
     ]
     
     static var stationsByGenre = [
-        RadioCategory(title: "Acoustic Station", genre: "Acoustic", group: "Apple Music Acoustic", color: [.blue, .cyan]),
-        RadioCategory(title: "Jazz Station", genre: "Jazz", group: "Apple Music Jazz", color: [.blue, .cyan]),
-        RadioCategory(title: "Adult Rock Station", genre: "Adult Rock", group: "Apple Music Rock", color: [.blue, .cyan]),
-        RadioCategory(title: "Electronic Station", genre: "Electronic", group: "Apple Music Electronic", color: [.blue, .cyan]),
-        RadioCategory(title: "Hits Station", genre: "Hits", group: "Apple Music Hits", color: [.blue, .cyan]),
-        RadioCategory(title: "Indie Station", genre: "Indie", group: "Apple Music Indie", color: [.blue, .cyan]),
-        RadioCategory(title: "Hard Rock Station", genre: "Hard Rock", group: "Apple Music Hard Rock", color: [.blue, .cyan]),
-        RadioCategory(title: "Rock Station", genre: "Rock", group: "Apple Music Rock", color: [.blue, .cyan]),
+        RadioCategory(title: "'70s Hits Station", group: "Apple Music Hits", image: "'70s Hits"),
+        RadioCategory(title: "'90s Hits Station", group: "Apple Music Hits", image: "'90s Hits"),
+        RadioCategory(title: "2010s Hits Station", group: "Apple Music Hits", image: "2010s Hits"),
+        RadioCategory(title: "Anime Station", group: "Apple Music Anime", image: "Anime"),
+        RadioCategory(title: "Bach Station", group: "Apple Music Bach", image: "Bach"),
+        RadioCategory(title: "Cool Family Station", group: "Apple Music Cool Family", image: "Cool Family"),
+        RadioCategory(title: "Dance Pop Station", group: "Apple Music Dance Pop", image: "Dance Pop"),
+        RadioCategory(title: "Electronic Station", group: "Apple Music Electronic", image: "Electronic"),
     ]
 }

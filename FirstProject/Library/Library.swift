@@ -11,6 +11,7 @@ struct Library: View {
     
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     private var data = LibraryCategory.data
+    @State private var iconWidth: Double = 0
     
     var body: some View {
         NavigationStack {
@@ -19,6 +20,8 @@ struct Library: View {
                     HStack {
                         Image(systemName: i.icon)
                             .foregroundColor(.red)
+//                            .sync(with: $iconWidth)
+//                            .frame(width: iconWidth)
                         Text(i.title)
                         Spacer()
                         Image(systemName: "chevron.right")
